@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  -var results=[];
+  -var Rabbit={};
+  -Rabbit.breed="MiniLop";
+  -Rabbit.color="Brown";
+  -Rabbit.price=40;
+  -results.push(Rabbit);
+  -var Rabbit1={};
+  -Rabbit1.breed="French Lop";
+  -Rabbit1.color="White";
+  -Rabbit1.price=60;
+  -results.push(Rabbit1);
+  -var Rabbit2={};
+  -Rabbit2.breed="Holland lop";
+  -Rabbit2.color="Grey";
+  -Rabbit2.price=70;
+  -results.push(Rabbit2);
+  
+  div(class="container-fluid")
+  div(class="row")
+   each b,index  in results
+    div(class="col-sm-2" onclick =`buy(${index})`)   Breed : #{b.breed},Color : #{b.color},price : #{b.price}
+    script.
+        function buy(a)
+        {
+            alert(`You purchased Item ${a+1}`)
+        } 
+
+
+  
+    
+
+       

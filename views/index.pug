@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p I like Pug.
+  button(class="btn btn-primary" onClick='doReduce()')#name Press Me
+  div(id="reduce") Reduce the value
+  
+  script. 
+        var count =20;
+        var change =-1;
+        function doReduce() {
+      count += change;
+      change -= 1;
+      document.getElementById('reduce').textContent = `Count ${count} with change ${change}`;
+    }
+
+  a(href='/Rabbit') Rabbit
+
+       
