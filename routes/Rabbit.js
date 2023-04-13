@@ -3,9 +3,10 @@ var router = express.Router();
 
 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('Rabbit', { title: 'Search Results Rabbit' });
-});
+const Rabbit_controlers = require('../controllers/Rabbit');
+
+/* GET costumes */
+
+router.get('/', Rabbit_controlers.Rabbit_view_all_Page);
 
 module.exports = router;
