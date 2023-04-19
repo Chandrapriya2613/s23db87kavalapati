@@ -20,7 +20,7 @@ var rabbitRouter = require('./routes/Rabbit');
 var boardRouter = require('./routes/board');
 var SelectorRouter = require('./routes/selector');
 var RabbitRouter = require("./models/Rabbit");
-var resourceRouter = require("./routes/resource");
+var resourceRouter = require('./routes/resource');
 
 //Get the default connection
 var db = mongoose.connection;
