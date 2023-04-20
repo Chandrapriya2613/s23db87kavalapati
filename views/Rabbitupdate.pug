@@ -2,26 +2,29 @@ extends layout
 
 block content
   h1= title
-  - let Rabbitid = toShow._id
-  - let breed = toShow.breed
-  - let color = toShow.color
-  - let price = toShow.price
+  if (toShow == null)
+    h2 No instance for detail
+  else 
+    - let Rabbitid = toShow._id
+    - let breed = toShow.breed
+    - let color = toShow.color
+    - let price = toShow.price
 
-  div.row(class='mb-2')
-    div.mr-1 ID is
-    div #{Rabbitid}
-    - let actionid = "/resource/Rabbit/" + Rabbitid
-    form(id='RabbitForm', action= actionid, method="PUT")
-      div.form-group
-        label.RabbitAttr(for='breed') Rabbit type
-        input#breed(type='text', name='breed', value= breed )
-      div.form-group
-        label.RabbitAttr(for='size') Rabbit color
-        input#color(type='text', name='color', value= color )
-      div.form-group
-        label.RabbitAttr(for='price') Rabbit price
-        input#price(type='number', name='price', value= price )
-      input(type="submit")
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{Rabbitid}
+      - let actionid = "/resource/Rabbit/" + Rabbitid
+      form(id='RabbitForm', action= actionid, method="PUT")
+        div.form-group
+          label.RabbitAttr(for='breed') breed
+          input#breed(type='text', name='breed', value= breed )
+        div.form-group
+          label.RabbitAttr(for='color') color
+          input#color(type='text', name='color', value= color )
+        div.form-group
+          label.RabbitAttr(for='price') price
+          input#price(type='number', name='price', value= price )
+        input(type="submit")
       script.
         document.forms['RabbitForm'].addEventListener('submit', (event) => {
           event.preventDefault();
@@ -32,7 +35,7 @@ block content
           }).then((resp) => {
             return resp.json(); // or resp.text() or whatever the server sends
           }).then((body) => {
-            alert("Update succeded")
+            alert("Update succeeded")
             // TODO handle body
           }).catch((error) => {
             // TODO handle error

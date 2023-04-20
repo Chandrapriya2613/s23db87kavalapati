@@ -2,20 +2,23 @@ extends layout
 
 block content
   h1= title
-  - let Rabbitid = toShow._id
-  - let breed = toShow.breed
-  - let color = toShow.color
-  - let price = toShow.price
-  div
-    div.row
-      div(class='RabbitAttr mr-3') Rabbit ID is:
-      div #{Rabbitid}
-    div.row
-      div(class='RabbitAttr mr-3') Rabbit breed is:
-      div #{breed}
-    div.row
-      div(class='RabbitAttr mr-3') Rabbit color is:
-      div #{color}
-    div.row
-      div(class='RabbitAttr mr-3') Rabbit price is:
-      div #{price}
+  if (toShow == null)
+    h2 No instance for detail
+  else  
+    - let Rabbitid = toShow._id
+    - let breed = toShow.breed
+    - let color = toShow.color
+    - let price = toShow.price
+    div
+      div.row
+        div(class='RabbitAttr mr-3') Rabbit ID is:
+        div #{Rabbitid}
+      div.row
+        div(class='RabbitAttr mr-3') breed:
+        div #{breed}
+      div.row
+        div(class='RabbitAttr mr-3') color:
+        div #{color}
+      div.row
+        div(class='RabbitAttr mr-3') price:
+        div #{price}
