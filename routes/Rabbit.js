@@ -18,7 +18,7 @@ const secured = (req, res, next) => {
     res.redirect("/login");
     }
 
-module.exports = router;
+
 
 /* GET detail costume page */
 router.get('/detail',secured, Rabbit_controlers.Rabbit_view_one_Page);
@@ -30,3 +30,4 @@ router.get('/create',secured, Rabbit_controlers.Rabbit_create_Page);
 router.get('/update',secured, Rabbit_controlers.Rabbit_update_Page);
 /* GET delete costume page */
 router.get('/delete',secured, Rabbit_controlers.Rabbit_delete_Page);
+module.exports = router;
